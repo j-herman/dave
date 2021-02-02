@@ -132,6 +132,7 @@ void UnderwaterCurrentROSPlugin::Load(gazebo::physics::WorldPtr _world,
 
   this->rosPublishConnection = gazebo::event::Events::ConnectWorldUpdateBegin(
     boost::bind(&UnderwaterCurrentROSPlugin::OnUpdateCurrentVel, this));
+
 }
 
 /////////////////////////////////////////////////
