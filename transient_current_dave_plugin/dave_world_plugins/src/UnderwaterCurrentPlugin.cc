@@ -31,7 +31,6 @@
 #include <sdf/sdf.hh>
 #include <dave_world_plugins/UnderwaterCurrentPlugin.hh>
 
-#include "ros/package.h"
 
 using namespace gazebo;
 
@@ -220,7 +219,7 @@ void UnderwaterCurrentPlugin::
     // this->databaseFilePath = concatPath.generic_string();
     //
     // Use ros package path:
-    this->databaseFilePath = ros::package::getPath("uuv_dave") +
+    this->databaseFilePath = this->db_path +
       "/worlds/transientOceanCurrentDatabase.csv";
   }
   GZ_ASSERT(!this->databaseFilePath.empty(),
@@ -231,7 +230,7 @@ void UnderwaterCurrentPlugin::
   csvFile.open(this->databaseFilePath);
   if (!csvFile)
   {
-    this->databaseFilePath = ros::package::getPath("uuv_dave") +
+    this->databaseFilePath = this->db_path +
       "/worlds/" + this->databaseFilePath;
     csvFile.open(this->databaseFilePath);
   }

@@ -125,6 +125,9 @@ namespace gazebo
 
     /// \brief Vehicle depth
     protected: double vehicleDepth;
+
+    /// \brief File path for stratified current database
+    protected: std::string db_path;
   };
 }
 
